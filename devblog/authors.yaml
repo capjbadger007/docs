@@ -58,6 +58,16 @@ madninja:
   url: https://github.com/madninja
   image_url: https://github.com/madninja.png
 
+mrpatrick1991:
+  name: Matthew Patrick
+  url: https://github.com/mrpatrick1991
+  image_url: https://github.com/mrpatrick1991.png
+
+noah:
+  name: Noah Prince
+  url: https://github.com/ChewingGlass
+  image_url: https://github.com/ChewingGlass.png
+
 pharkmillups:
   name: Mark Phillips
   url: https://github.com/PharkMillups
@@ -87,3 +97,13 @@ lytzV:
   name: Victor Li
   url: https://github.com/lytzV
   image_url: https://github.com/lytzV.png
+
+jhiller:
+  name: Joey Hiller
+  url: https://github.com/jthiller
+  image_url: https://github.com/jthiller.png
+
+mbthiery:
+  name: Matthew Thiery
+  url: https://github.com/mbthiery
+  image_url: https://github.com/mbthiery.png

@@ -1,9 +1,9 @@
-const math = require('remark-math')
-const katex = require('rehype-katex')
-const webpack = require('webpack')
-
-const lightCodeTheme = require('prism-react-renderer/themes/github')
-const darkCodeTheme = require('prism-react-renderer/themes/dracula')
+import { themes } from 'prism-react-renderer'
+import katex from 'rehype-katex'
+import math from 'remark-math'
+import webpack from 'webpack'
+const darkCodeTheme = themes.dracula
+const lightCodeTheme = themes.github
 
 module.exports = {
   title: 'Helium Documentation',
@@ -44,45 +44,43 @@ module.exports = {
       style: 'primary',
       logo: {
         alt: 'Helium Logo',
-        src: 'img/icons/logoblack.svg',
-        srcDark: 'img/icons/logowhite.svg',
+        src: 'img/icons/logo_docs_black.svg',
+        srcDark: 'img/icons/logo_docs_white.svg',
       },
       items: [
         {
-          to: 'solana/',
-          label: 'Architecture',
-          position: 'left',
-        },
-        {
-          to: 'helium-tokens/hnt',
+          to: 'tokens/hnt-token',
           label: 'Tokens',
           position: 'left',
         },
         {
-          to: 'lorawan-on-helium',
+          to: 'wallets',
+          label: 'Wallets',
+          position: 'left',
+        },
+        {
+          to: 'iot',
           label: 'IoT Network',
           position: 'left',
         },
         {
-          to: '5g-on-helium',
+          to: 'mobile/5g-on-helium',
           label: 'Mobile Network',
           position: 'left',
         },
+        // "more" dropdown for navbar
         {
-          to: '/governance',
-          label: 'Governance',
+          label: 'More',
           position: 'left',
-        },
-        {
-          to: '/devblog',
-          label: 'Dev Blog',
-          position: 'left',
-        },
-        {
-          to: '/solana/migration/',
-          label: 'Solana Migration Guides',
-          position: 'right',
-          className: 'announcementnav',
+          items: [
+            { label: 'Network Architecture', to: 'solana' },
+            { label: 'Community Governance', to: 'governance' },
+            { label: 'Dev Blog', to: 'devblog' },
+            {
+              href: 'https://github.com/helium',
+              label: 'Helium GitHub',
+            },
+          ],
         },
       ],
     },
@@ -93,7 +91,7 @@ module.exports = {
     prism: {
       theme: lightCodeTheme,
       darkTheme: darkCodeTheme,
-      additionalLanguages: ['protobuf', 'rust', 'toml'],
+      additionalLanguages: ['protobuf', 'rust', 'toml', 'bash'],
     },
   },
   presets: [
@@ -109,8 +107,8 @@ module.exports = {
           remarkPlugins: [math],
           rehypePlugins: [katex],
         },
-        googleAnalytics: {
-          trackingID: 'UA-52432858-10',
+        gtag: {
+          trackingID: 'G-85D2WJWZNL',
         },
         theme: {
           customCss: require.resolve('./src/css/custom.css'),
@@ -132,7 +130,7 @@ module.exports = {
   customFields: {
     MIGRATION_SERVICE_URL: 'https://migration.web.helium.io',
     SOLANA_URL: 'https://solana-rpc.web.helium.io/?session-key=Pluto',
-    HNT_TO_RENT_SERVICE_URL: 'https://hnt-to-rent.web.helium.io',
+    TOKENS_TO_RENT_SERVICE_URL: 'https://tokens-to-rent.web.helium.io',
   },
   plugins: [
     function (context, options) {
@@ -183,5 +181,5 @@ module.exports = {
   markdown: {
     mermaid: true,
   },
-  themes: ['@docusaurus/theme-mermaid'],
+  themes: ['@docusaurus/theme-mermaid', 'docslab-docusaurus'],
 }

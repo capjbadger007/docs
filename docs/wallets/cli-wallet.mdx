@@ -1,0 +1,169 @@
+---
+id: cli-wallet
+title: CLI Wallet
+pagination_label: CLI Wallet
+sidebar_label: CLI Wallet
+description: Helium Documentation
+image: https://docs.helium.com/img/link-image.png
+slug: /wallets/cli-wallet
+---
+
+import useBaseUrl from '@docusaurus/useBaseUrl'
+
+# Command Line Interface Wallet
+
+## Installing Helium CLI Wallet
+
+### Running From a Release
+
+Releases of the Helium CLI Wallet are
+[available on GitHub](https://github.com/helium/helium-wallet-rs/releases). Select the appropriate
+package for your operating system.
+
+Unpack the zip file and place the helium-wallet binary in your `$PATH`. This operation differs
+depending on your operating system but is a common task and easily searchable.
+
+### Building From Source
+
+The Helium CLI Wallet is open-source, written in Rust, and can be compiled with appropriate tooling.
+For build instructions, see the
+[Building from Source](https://github.com/helium/helium-wallet-rs#building-from-source) section on
+the helium‑wallet‑rs GitHub repo.
+
+## Usage
+
+At any time, use `--help` to see the most recent in-program documentation.
+
+At the time of this writing, version 2.0.0-rc.3 looks like this:
+
+```sh
+./helium-wallet --help
+Common options for most wallet commands
+
+Usage: helium-wallet [OPTIONS] <COMMAND>
+
+Commands:
+  info      Get wallet information
+  balance   Get the balance for a wallet or a given public key. The balance is given for each of the Helium related holdings of a given Solana address
+  upgrade   Upgrade a wallet to the latest supported version of the given format. The same password is used to decrypt the old and encrypt the new wallet
+  router    Operations on routers
+  create    Create a new wallet or keypair
+  hotspots  Commands on hotspots
+  dc        Commands on data credits
+  transfer  Send one (or more) payments to given addresses
+  export    Exports encrypted wallet seed as QR-encoded JSON or raw seed via stdout
+  help      Print this message or the help of the given subcommand(s)
+
+Options:
+  -f, --file <FILES>  File(s) to use [default: wallet.key]
+      --url <URL>     Solana RPC URL to use [default: m]
+  -h, --help          Print help
+  -V, --version       Print version
+```
+
+Exploring the help menu is always a good way to orient yourself. To learn more about a certain
+transaction (or subcommand), simply append `--help`. e.g.:
+
+```sh
+./helium-wallet dc --help
+Commands on data credits
+
+Usage: helium-wallet dc <COMMAND>
+
+Commands:
+  price     Get the amount of HNT needed to buy a given number of USD worth of Data Credits
+  mint      Burn HNT to Data Credits (DC) from this wallet to given payees wallet
+  delegate  Delegate DC from this wallet to a given router
+  help      Print this message or the help of the given subcommand(s)
+
+Options:
+  -h, --help  Print help
+```
+
+## Basic Commands
+
+### Create Wallet
+
+`helium-wallet create basic`
+
+This command will create an account as a single key, stored in `wallet.key` which gets output in the
+same directory where the command is run.
+
+Upon creation, the CLI will prompt you for a password that encrypts the file. A strong password will
+make it difficult for someone to brute force the file should the file be compromised.
+
+### Display Wallet
+
+Displaying information for an account without needing its password can be done using:
+
+```bash
+$ helium-wallet info
+```
+
+To display a QR code for the public key of the given Wallet use:
+
+```bash
+$ helium-wallet info --qr
+```
+
+The QR Code is useful for sending tokens to the account from a wallet app.
+
+### Wallet Creation Features
+
+Creating a Wallet above is easy, but there's a lot more flexibility you might not know about. It's
+always recommended to explore the help menu to learn more:
+
+```bash
+$ helium-wallet create basic --help
+Create a new basic wallet
+
+Usage: helium-wallet create basic [OPTIONS]
+
+Options:
+  -o, --output <OUTPUT>  Output file to store the key in [default: wallet.key]
+      --force            Overwrite an existing file
+      --seed             Use a BIP39 or mobile app seed phrase to generate the wallet keys
+  -h, --help             Print help
+```
+
+### Managing Multiple Accounts
+
+A more precise location or filename can be specified when creating an account by using the
+`--output` flag. e.g.:
+
+```bash
+$ helium-wallet create basic --output ~/my-wallets/wallet-5.key
+```
+
+You can specify a file other than the default `./wallet.key` by using the global option `--file`.
+e.g.:
+
+```bash
+$ helium-wallet -f ~/my-wallets/wallet-5.key transfer <AMOUNT> <ADDRESS> <TOKEN>
+```
+
+### Import Seed-phrase Account into CLI
+
+The `--seed` flag enables you to import an account secured by a 12 or 24-word seed phrase.
+
+Enter the command:
+
+```
+$ helium-wallet create basic --seed
+```
+
+After you press enter, you will be prompted for your seed words, separated by spaces.
+
+### Export to Helium Wallet App
+
+Helium Wallets created using the CLI can be exported to the Helium Wallet App.
+
+```bash
+$ helium-wallet export
+```
+
+You will be prompted for the Wallet Password, (this is _not_ your seed phrase, this password was
+input when the Wallet was created.)
+
+The `export` command will display the seed phrase associated with the given account. This seed
+phrase can be used with the Helium Wallet App or other Solana ecosystem wallets.

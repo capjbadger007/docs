@@ -9,14 +9,14 @@ slug: /wallets/helium-wallet-app
 ---
 
 import useBaseUrl from '@docusaurus/useBaseUrl'
-
-# Helium Wallet App
+import { FakeHivemapper } from './HeliumWalletApp'
 
 <img className="docsheader" src={useBaseUrl('img/wallets/helium-wallet-app/header.png')} />
 
 <div class="container">
   <div class="row">
-    <div class="col col--6" style={{ padding: '1rem 0' }}>
+    <div class="col col--2"></div>
+    <div class="col col--4" style={{ padding: '1rem 0' }}>
       <a href="https://apps.apple.com/us/app/helium-hnt-wallet/id1609525848">
         <img
           className="app-store-badge img-center"
@@ -24,7 +24,7 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
         />
       </a>
     </div>
-    <div class="col col--6" style={{ padding: '1rem 0' }}>
+    <div class="col col--4" style={{ padding: '1rem 0' }}>
       <a href="https://play.google.com/store/apps/details?id=com.helium.wallet.app">
         <img
           className="app-store-badge img-center"
@@ -32,81 +32,106 @@ import useBaseUrl from '@docusaurus/useBaseUrl'
         />
       </a>
     </div>
+    <div class="col col--2"></div>
   </div>
 </div>
 
-The Helium Wallet app is the trusted way to manage your Helium tokens and identity.
-
+The Helium Wallet app is the trusted way to manage your Helium account.  
 Some notable features:
 
-- Multiple Account Support
-- Ledger Balance
-- Address Book
-- Verify your Helium Identity
-- Lock-up tokens for voting power and staking rewards
-- Voting on governance
-- Multiple Recipient Payment Support
-- Claiming tokens from Hotspots to your wallet
+- Multiple account support (maximum of 10)
+- Ledger balance
+- Address book
+- Verify your Helium identity
+- Lock-up tokens for voting power and rewards
+- Multiple recipient payment support
+- Claim tokens from Hotspots to your account
+- Claim rewards for locked-up tokens to your account
 - Transfer NFTs representing Hotspot ownership
-- Exchange one Helium token for another or SOL
+- Swap HNT into DC
+- Swap MOBILE and IOT Tokens into HNT
+- Update the location of a Hotspot
+- Update the antenna of a Hotspot
+- Onboard Hotspots
+- Vote on HIPs on the [Helium Vote](https://heliumvote.com/hnt) website
 
-All Hotspot Management (diagnostics, asserting location, adding Hotspots, etc) should be done via
-the [Maker Apps](/hotspot-makers) available from the manufacturer.
+Hotspot management should be done via the [Maker App](/hotspot-makers) available from the
+manufacturer.  
+See Hotspot manufacturer apps for features such as:
 
-## Wallets and Accounts
+- Hotspot diagnostics
+- Onboarding Hotspots
+- Hotspot settings such as Wi-Fi credentials
 
-### Importing An Existing Wallet
+## A Note On Account Safety
 
-<img
-  className="appscreenbanner"
-  src={useBaseUrl('img/wallets/helium-wallet-app/import-account-banner.png')}
-/>
+Before proceeding, a few general notes on how to be safe in web3. An account is entirely your own.
+No third party – including Helium – can recover or access an account. As such, it is critical that
+the 12 or 24-word seed phrase be stored in a **secure manner** and **must never be shared**. Taking
+and storing screenshots of the seed words is not recommended, as it is not a secure way to store
+them. Screenshots and photos stored or backed up in the cloud are an easy target for attackers,
+leading to funds being stolen.
 
-If you have an existing Helium wallet, either one created from the original Helium app or using CLI,
-you can import it into the Wallet app.
+The point cannot be emphasized enough:  
+**Securely store and never share the 12 or 24-word seed phrase.**
 
-|  Account Type  | Action                                                                                |
-| :------------: | :------------------------------------------------------------------------------------ |
-| 12-word wallet | Tap the `12 Word` button and enter in the 12-word seed phrase, in the original order. |
-| 24-word wallet | Tap the `24 Word` button and enter in the 24-word seed phrase, in the original order. |
-|     Ledger     | Tap the Ledger option and follow the in-app prompts to pair with the hardware wallet. |
+Anyone asking for your 12 or 24-word seed phrase is **guaranteed to be a scammer**. If you fail to
+keep your seed phrase secure or if you share your seed phrase with anybody, all of your tokens,
+Hotspots, or NFTs will be **stolen** and will never be able to be recovered!
 
-### Creating A New Wallet
+Additionally, beware of lookalike websites or apps seeking to offer help, support, airdrops, or
+other features. Do not share private keys or authenticate transactions through untrusted platforms.
+
+<FakeHivemapper />
+
+## Accounts
+
+### Creating A New Account
 
 <img
   className="appscreenbanner"
   src={useBaseUrl('img/wallets/helium-wallet-app/new-account-banner.png')}
 />
 
-Wallets created with the Helium Wallet app are generated with a 24-word seed phrase. These 24 words
-in correct order are the only way to access the wallet, and can never be recovered if lost. **They
-should never be shared**, as whoever has them is considered the owner of all Tokens, Hotspots, or
-NFTs. Anyone asking for them is guaranteed to be a scammer.
+Accounts created with the Helium Wallet app are generated with a 24-word seed phrase. These 24 words
+in the correct order are the **only** way to access the account and can **never** be recovered if
+lost. Whomever has the 24-word seed phrase controls the wallet, meaning that they are considered the
+owner of all tokens, Hotspots, or NFTs in the account.
 
-**Taking and storing screenshots of the seed words is not recommended, as it is not a** secure way
-to store them. Screenshots and photos stored or backed up in the cloud can easily be hacked and
-funds stolen.
+### Importing An Existing Account
 
-## Working With Multiple Wallets
+<img
+  className="appscreenbanner"
+  src={useBaseUrl('img/wallets/helium-wallet-app/import-account-banner.png')}
+/>
 
-You are able to create/import multiple wallets, each with their unique set of 12 or 24 words. You
-can move between wallets by swiping left/right on the wallet name at the top of the screen. When you
-tap on Settings, they will be for the selected wallet.
+If you have an existing Helium account you can import it into the Helium Wallet app.
 
-:::info How Many Wallets?
+|    Account Type     | Action                                                                                |
+| :-----------------: | :------------------------------------------------------------------------------------ |
+| 12-word seed phrase | Tap the `12 Word` button and enter the 12-word seed phrase, in the original order.    |
+| 24-word seed phrase | Tap the `24 Word` button and enter the 24-word seed phrase, in the original order.    |
+|       Ledger        | Tap the Ledger option and follow the in-app prompts to pair with the hardware wallet. |
 
-There is a limit of 10 wallet accounts (testnet + mainnet combined) per install.
+## Working With Multiple Accounts
 
-:::
+The Helium Wallet App supports creating or importing up to 10 accounts, each with its own unique set
+of 12 or 24 words. Navigate between accounts by pressing on the account name at the top of the
+screen. An account selector allows toggling between different onboarded accounts. The settings
+screen will apply to the selected account.
 
 ## Tokens Supported
 
-The Helium wallet will display the quantity in your wallet and price for:
+The Helium Wallet will display the token balances and fiat value in your account for:
 
-HNT - in USD or your defined currency MOBILE - in USD or your defined currency IOT- in USD or your
-defined currency DC- in USD (Not transferable) SOL- in USD or your defined currency
+**HNT** - in USD or your defined currency  
+**MOBILE** - in USD or your defined currency  
+**IOT**- in USD or your defined currency  
+**DC** - in USD (Not transferable)  
+**SOL** - in USD or your defined currency  
+**USDC** - in USD or your defined currency
 
-No other tokens held in your wallet will be displayed, the value of other tokens will not be shown.
+No other tokens held in your account will be displayed in the Helium Wallet App.
 
 ## Send And Request Tokens
 
@@ -115,59 +140,46 @@ No other tokens held in your wallet will be displayed, the value of other tokens
   src={useBaseUrl('img/wallets/helium-wallet-app/send-request-banner.png')}
 />
 
-The Blue Send button allows you to choose the imported wallet you wish to send from, and choose a
-Contact you wish to send HNT to.
+<svg
+  style={{ float: 'left', paddingRight: '1em', width: '60' }}
+  viewBox="0 0 61 61"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle cx="30.2061" cy="30.4307" r="30" fill="#131419" />
+  <circle cx="30.2061" cy="30.4307" r="30" fill="#009FF9" fill-opacity="0.2" />
+  <path
+    d="M31.8209 25.1597L37.6179 30.9406L39.8947 28.6637L30.2061 18.9751L20.5175 28.6637L22.7943 30.9406L28.5913 25.1597V41.8862H31.8209V25.1597Z"
+    fill="#009FF9"
+  />
+</svg>
 
-The Green Request button allows you to quickly generate a QR code for someone to scan (which
-provides your wallet address), or generate a link to share via email or text. You can also enter in
-the amount you are requesting, if it is a known quantity, and add a note.
+The blue send button allows you to choose the account you wish to send from and choose one or more
+addresses or contacts you wish to send tokens to.
 
-### Multiple Recipient Payment Support
+<svg
+  style={{ float: 'left', paddingRight: '1em', width: '60' }}
+  viewBox="0 0 60 60"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <circle cx="30" cy="30" r="30" fill="#131419" />
+  <circle cx="30" cy="30" r="30" fill="#27EE76" fill-opacity="0.2" />
+  <path
+    d="M31.6144 35.271L37.4114 29.4901L39.6883 31.7669L29.9996 41.4556L20.311 31.7669L22.5878 29.4901L28.3848 35.271V18.5445H31.6144V35.271Z"
+    fill="#27EE76"
+  />
+</svg>
 
-Multiple recipient payments are now supported on the Wallet app. This is most useful for those that
-need to wait for a payment transaction to clear and appear on the blockchain before sending the next
-payment.
-
-:::tip
-
-You can create your own [QR codes](/wallets/app-wallet/deep-links-and-qr-codes/) to scan, which can
-include an address/alias to send payment to.
-
-The new payment type supported in the Helium Wallet app can have multiple payees which can also be
-included in a QR code.
-
-You can also form a Burn transaction in QR Code format.
-
-:::
-
-## Voting
-
-<img
-  className="appscreenbanner"
-  src={useBaseUrl('img/wallets/helium-wallet-app/vote-banner.png')}
-/>
-
-When HIPs (Helium Improvement Proposals) are being voted on, you can quickly and easily vote for or
-against any Active votes. Tapping on Closed Votes shows a historical record of past HIPs and how the
-vote was decided.
+The green request button allows you to quickly generate a QR code of your account's public address
+for someone to scan or generate a link to share via email or text. You can also enter the amount you
+are requesting or add a note.
 
 ## Helium Identity
 
-Use the new Wallet app to connect to various dApps like Crowdspot and authenticate your identity on
-the Helium blockchain.
-
-## Transaction Filters
-
-<img src={useBaseUrl('img/wallets/helium-wallet-app/filters.png')} />
-
-|        Filter        | Description                                                                                                                                                                                                                                                                     |
-| :------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-|   All Transactions   | Shows all interactions with the blockchain.                                                                                                                                                                                                                                     |
-|    Mining Rewards    | Shows the mining rewards the wallet has earned from any included Hotspot.                                                                                                                                                                                                       |
-|       Payments       | Lists all payments that were either sent or received.                                                                                                                                                                                                                           |
-|       Hotspots       | Lists the Hotspots associated with the wallet. Note that any interactions with the Hotspots, such as diagnostics and asserting location, etc, will need to be done from the Maker app. This list is for reference only as Hotspot actions are not available in this wallet app. |
-|  Burn Transactions   | Lists Token Burn Transactions. (i.e. Data Credits burned to vote on a HIP)                                                                                                                                                                                                      |
-| Pending Transactions | Lists any transactions that have been submitted, but have not yet been validated/cleared on the blockchain.                                                                                                                                                                     |
+Use the Helium Wallet App to connect to dApps and authenticate your identity on the Solana
+blockchain. Using the in-app browser, access dApps such as Jupiter Aggregator or
+[lock-up your tokens and vote using Modular Governance](https://modular-governance.helium.com/).
 
 ## Address Book And Contacts
 
@@ -176,12 +188,12 @@ the Helium blockchain.
   src={useBaseUrl('img/wallets/helium-wallet-app/address-book-banner.png')}
 />
 
-This feature allows you to save names/nicknames and related wallet addresses for those you may wish
-to send tokens to. Contacts are displayed in alphabetical order, and are searchable by name or
-wallet address. There is no limit to the number of Contacts you can have.
+This feature allows you to save names/nicknames and related account addresses for accounts you may
+wish to send tokens to. Contacts are displayed in alphabetical order and are searchable by name or
+account address. There is no limit to the number of contacts you can have.
 
-Tapping on a Contact displays the full Helium or Solana address as well as the Nickname field, which
-can be adjusted at any time.
+Tapping on a contact displays the public address as well as the Nickname field, which can be
+adjusted at any time.
 
 ## Settings
 
@@ -192,16 +204,27 @@ can be adjusted at any time.
   src={useBaseUrl('img/wallets/helium-wallet-app/settings-wallet-account-banner.png')}
 />
 
-Each Account imported to the Helium Wallet App has separate settings.
+Each account imported to the Helium Wallet app has separate settings.
 
-|     Setting     | Description                                                                                                                                                                                                     |
-| :-------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-|  Account Alias  | You can rename the wallet here for organization (does not affect your wallet address or HNT)                                                                                                                    |
-| Default Account | When using multiple wallets, this toggle will determine which one is the default and will show first whenever the app is opened.                                                                                |
-|  Reveal Words   | While logged in, you can view your 12-word or 24-word seed phrase. These are required for login/logout of a wallet, and can never be recovered if lost. Lose these, lose the wallet and everything it contains. |
-|  Copy Address   | Copies the wallet address to your devices clipboard                                                                                                                                                             |
-|  Share Address  | Provides QR code so someone can scan your wallet address, and allows you to quick share it via email or text.                                                                                                   |
-|    Sign Out     | logs you out of the current wallet. The original 12-word or 24-word seed phrase is required, to ensure the words are safely backed up since they can not be recovered.                                          |
+|     Setting     | Description                                                                                                                                        |
+| :-------------: | :------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  Account Alias  | Give your account a name to help separate it from other accounts managed in the Helium Wallet App.                                                 |
+| Default Account | When using multiple accounts, this toggle will determine which one is the default and will show first whenever the Helium Wallet app is opened.    |
+|  Copy Address   | Copies the account address to your device's clipboard.                                                                                             |
+|  Share Address  | Provides QR code so someone can scan your account's public address or allows you to quickly share it via email or text.                            |
+|  Remove Wallet  | Logs you out of the current account. The original seed phrase is required to ensure the words are safely backed up since they cannot be recovered. |
+
+### Hotspots Wallet Backup
+
+If someone has your private key, they will have full control of your account. This includes the
+ability to remove tokens and Hotspots.  
+Do **not** enter these words into any untrusted website. Any person or website asking for these keys
+is likely a scammer.
+
+|      Setting       | Description                                                                                                                                                                                                                                      |
+| :----------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|    Reveal Words    | While logged in, you can view your 12-word or 24-word seed phrase. These are required for login/logout of an account and can never be recovered if lost. Lose these, lose the Wallet and everything it contains. Back them up in a secure place. |
+| Reveal Private Key | The private key of your account can be used to import the account into other Solana-compatible wallet apps such as Solflare, Phantom, Coinbase Wallet, or Backpack.                                                                              |
 
 ### Security Settings
 
@@ -210,14 +233,14 @@ Each Account imported to the Helium Wallet App has separate settings.
   src={useBaseUrl('img/wallets/helium-wallet-app/settings-security-banner.png')}
 />
 
-These Settings keep the Helium Wallet App secure.
+These settings keep the Helium Wallet app secure.
 
-|         Setting          | Description                                                                                            |
-| :----------------------: | :----------------------------------------------------------------------------------------------------- |
-|        Enable PIN        | Set up a PIN code for accessing the wallet from the device                                             |
-|       Require PIN        | Set time limit for for when PIN is required to log back in (Immediately, 1min, 5min, 15min, 1hr, 4hrs) |
-|        Reset PIN         | Change the current PIN to a new one (original PIN is required to update this)                          |
-| Require PIN for Payments | This additional security option requires the PIN to be entered before any HNT payment can be sent.     |
+|         Setting          | Description                                                                                     |
+| :----------------------: | :---------------------------------------------------------------------------------------------- |
+|        Enable PIN        | Set up a PIN code for accessing the Wallet from the device.                                     |
+|       Require PIN        | Set time limit when PIN is required to log back in (Immediately, 1min, 5min, 15min, 1hr, 4hrs). |
+|        Reset PIN         | Change the current PIN to a new one (the original PIN is required).                             |
+| Require PIN for Payments | This additional security option requires the PIN to be entered before any payment can be sent.  |
 
 ### App Settings
 
@@ -226,44 +249,44 @@ These Settings keep the Helium Wallet App secure.
   src={useBaseUrl('img/wallets/helium-wallet-app/settings-app-banner.png')}
 />
 
-The Helium Wallet App has interface settings that can be adjusted to your liking.
+The Helium Wallet app has interface settings that can be adjusted to your liking.
 
-|       Setting       | Description                                                             |
-| :-----------------: | :---------------------------------------------------------------------- |
-|      Language       | Change which language the app text will be displayed.                   |
-|      Currency       | Change which currency the app displays the market equivalent to the HNT |
-| Convert to Currency | Shows selected currency (at market rate) instead of HNT                 |
-|     App Version     | Notes the version of the app that is installed                          |
+| Setting  | Description                                                                     |
+| :------: | :------------------------------------------------------------------------------ |
+| Language | Change which language the app text will be displayed in.                        |
+| Currency | Change which currency the app displays the market equivalent of token balances. |
 
 ### Developer Settings
 
-Developer settings should be used intentionally. If you are not a Developer, or not sure what these
-settings do, it is best to leave them `off` by default.
+Developer settings should be used intentionally. If you are not a developer or are not sure what
+these settings do, it is best to leave them unchanged.
 
-|    Setting     | Description                                                                                                                                                                                                                                                  |
-| :------------: | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Enable Testnet | Testnet is typically for developers. It allows you to create a test account and get TNT (which holds zero monetary value), which can be used to test apps and transactions without burning real HNT. When toggled on, you create a testnet specific account. |
+|    Setting     | Description                                                                                                                                                                                                                                                                                       |
+| :------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Solana Cluster | Offers the ability to operate outside of Solana Mainnet. Devnet is typically for testing or demo purposes. Your account will operate on the selected network Solana Devnet. Hotspots or Token balances are not replicated across clusters. The in-app faucet can be used to fund devnet accounts. |
 
 ---
 
 ### Examine Hotspots
 
-You can now examine your hotspots by clicking the Collectables Tab.
-
-Let us know via Discord if you experience any issues!
+You can now examine your Hotspots by clicking the Collectables Tab.
 
 <div className="img-center">
   <img className="appscreenbanner" src={useBaseUrl('img/solana/migration-collectibles.png')} />
 </div>
 
-### Ledger Wallet
+## 12-Word And 24-Word Seed Phrases
 
-Hardware ledgers are not yet compatible with the Helium Wallet App on the Solana blockchain. Current
-advice is to migrate using the tool mentioned below and switch to using
-[Solflare](https://solflare.com/).
+When a Helium account is created with the Helium Wallet app, a 24-word "Seed Phrase" is generated.
 
-See [Ledger wallet migration guide](/solana/migration/ledger) for guidance on how to migrate Ledger
-wallets to Solana.
+Users who created their Helium account using the Helium Hotspot app will have a 12-word seed phrase.
+While the Helium Wallet app accepts 12-word seed phrases, all new Helium Wallets are created with
+24-word seed phrases.
 
-See [Ledger Wallet Hardware](/wallets/ledger/) for how a Leger wallet was configured for HNT on the
-Helium Blockchain.
+Read more about [Helium Wallet Seed Phrase](/wallets/wallet-seed-phrase).
+
+:::caution Before Deleting Helium Wallet Apps
+
+Do not uninstall the Helium Wallet app without first writing down the seed phrase.
+
+:::
